@@ -340,8 +340,8 @@ function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) 
 
           </div>
             <div className="flex justify-evenly mt-5">
-              <BtnForm></BtnForm>
-              <BtnForm></BtnForm>
+              <BtnForm titleBtn="Anterior" />
+              <BtnForm titleBtn="Próximo" />
             </div>
           </div>
               
