@@ -1,6 +1,6 @@
 const ErrorPage = () => {
   return (
-    <div className="bg-gradient-to-t to-[#b3dae1] from-[#8acfd6] bg-no-repeat h-screen flex justify-center items-center flex-col text-cyan-600" >
+    <div className="bg-gradient-to-t from-cyan-700 to-cyan-500 bg-no-repeat h-screen flex justify-center items-center flex-col text-cyan-600" >
       <div className="bg-white rounded-xl w-3/4 h-[800px] flex flex-col justify-end items-center p-10 bg-custom-pattern bg-contain bg-center bg-no-repeat shadow-custom-blue">
         
         

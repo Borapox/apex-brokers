@@ -8,11 +8,14 @@ export default {
     extend: {
 
       backgroundImage: {
-        'custom-pattern': "url('/src/assets/3793096.jpg')",        
+        'custom-pattern': "url('/src/assets/Error_404.jpg')",        
       },
       boxShadow: {
         'custom-blue': '0 5px 10px -1px rgba(19, 207, 214, 0.6), 0 2px 4px -1px rgba(179, 218, 225, 0.4)',
-      }
+      },
+      fontFamily: {
+        'mulish' : 'Mulish Variable'
+      },
     },
   },
   plugins: [],

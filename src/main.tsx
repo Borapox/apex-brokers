@@ -16,18 +16,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-    
-    children :[
-      {
-        path: "createAccount",
-        element: <CreateAccount />
-      }
-    ]
-  }
-  
-  
-
-])
+  },
+  {
+    path: "/createAccount",
+    element: <CreateAccount />,
+  },
+]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
