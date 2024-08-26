@@ -1,25 +1,33 @@
-import { SiExpertsexchange} from "react-icons/si";
+import { SiExpertsexchange, SiShutterstock} from "react-icons/si";
 import '@fontsource-variable/mulish';
 import { Link } from "react-router-dom";
 
 // import SingInCard from "../components/card-modal/SingInCard";
-import { useState } from "react";
-import { X } from "lucide-react";
+import { SetStateAction, useState } from "react";
+import { CalendarDays, LockKeyhole, Mail, UserPen, X } from "lucide-react";
 
 import BtnForm from "../components/login-page/BtnForm";
-import IsInfoUser from "../components/login-page/isInfoUser";
-import IsRegisterAddress from "../components/login-page/IsRegisterAddress";
-import IsFinancial from "../components/login-page/IsFinancial";
 
-// Hook
-import { userForm } from "../hooks/userForm";
+import { AiOutlineFieldNumber, AiOutlineStock } from "react-icons/ai";
+import { FaPersonHalfDress, FaHouseUser, FaRegAddressCard, FaCity } from "react-icons/fa6";
+import { GrUserWorker } from "react-icons/gr";
+import { MdMyLocation, MdAttachMoney } from "react-icons/md";
 
+
+const estados_UF = [
+  "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT",
+  "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"
+].sort();
 
 
 const CreateAccount = () => {
-  const formComponentes = [ <IsInfoUser />, <IsRegisterAddress />, <IsFinancial /> ];
-  const { currentSteps, currentComponent } = userForm(formComponentes)
+  // Estado do Select UF
+const [selectUf, setSelectUf] = useState('');
 
+// Manipulador de Seleção de UF
+function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) {
+ setSelectUf(event.target.value);
+}
 
    // Função Modal Registro
   const [isCreateAccount, setIsCreateAccount] = useState(false);
@@ -31,6 +39,36 @@ const CreateAccount = () => {
     return setIsCreateAccount(false);
   }
 
+  const [isInfoUser, setIsInfoUser] = useState(true);
+
+  function openUserInfo() {
+    return (
+      setIsInfoUser(true),
+      setIsRegisterAddress(false),
+      setIsFinancial(false)
+    )
+  }
+
+  
+  const [isRegisterAddress, setIsRegisterAddress] = useState(false);
+    
+  function openRegisterAdress() {
+    return (
+      setIsInfoUser(false),
+      setIsRegisterAddress(true),
+      setIsFinancial(false)
+    );
+  }
+
+  const [isFinancial, setIsFinancial] = useState(false);
+
+  function openFinancial(){
+    return (
+      setIsInfoUser(false),
+      setIsRegisterAddress(false),
+      setIsFinancial(true)
+    )
+  }
 
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-t from-gray-400 to-gray-200">
@@ -102,22 +140,209 @@ const CreateAccount = () => {
 
 
                   <div className="flex gap-5 justify-center items-center mt-8 mb-8 h-8 uppercase text-gray-200 text-xl">
-                    <a href="#" className="hover:text-black transition duration-500">Dados Pessoais</a>
-                    <a href="#" className="hover:text-black transition duration-500">Endereço</a>
-                    <a href="#" className="hover:text-black transition duration-500">Informações Financeiras</a>
+                    <a href="#" className="hover:text-black transition duration-500" onClick={openUserInfo}>Dados Pessoais</a>
+                    <a href="#" className="hover:text-black transition duration-500" onClick={openRegisterAdress}>Endereço</a>
+                    <a href="#" className="hover:text-black transition duration-500" onClick={openFinancial}>Informações Financeiras</a>
                   </div>
 
 
                       {/* Div responsável pelos dados do formulário */}
 
-                  <div className="h-[350px] w-[800px] border border-lime-400 m-auto p-5">
-                  
+          <div className="h-[350px] w-[800px] border border-lime-400 m-auto p-5">
+          
+          {isInfoUser && (
+            <div className="flex justify-center items-center">
+            <form action="" className="flex flex-col w-[750px] gap-5 text-cyan-800">
+              {/* Nome - Sobrenome */}
+              <div className="flex gap-5">
+                <div className="flex items-center gap-4 flex-1">
+                  <UserPen className="text-black text-2xl" />
+                  <input 
+                        type="text"
+                        name="nome" 
+                        placeholder="Nome" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                </div>
+                <div className="flex items-center gap-4 flex-1">
+                  <UserPen className="text-black text-2xl" />
+                  <input 
+                        type="text" 
+                        name="sobrenome" 
+                        placeholder="Sobrenome" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                </div>
+              </div>
+
+              {/* CPF - Data de Nascimento */}
+              <div className="flex gap-5">
+                <div className="flex items-center gap-4 flex-1">
+                  <AiOutlineFieldNumber className="text-black text-2xl" />
+                  <input 
+                        type="number" 
+                        name="cpf" 
+                        placeholder="CPF" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                </div>
+                <div className="flex items-center gap-4 flex-1">
+                  <CalendarDays className="text-black text-2xl" />
+                  <input 
+                        type="date" 
+                        name="dataNascimento" 
+                        placeholder="Data de Nascimento" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                </div>
+              </div>
+
+              {/* Gênero */}
+              <div className="flex items-center gap-4">
+                <FaPersonHalfDress  className="text-black text-2xl" />
+                <select name="genero" className="outline-none p-3 rounded-sm flex-1">
+                  <option value="">Selecione o Gênero</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              {/* E-mail */}
+              <div className="flex items-center gap-4">
+                <Mail className="text-black text-2xl" />
+                <input
+                        type="email"
+                        name="email" 
+                        placeholder="E-mail"
+                        className="outline-none p-3 rounded-sm flex-1" />
+              </div>
+
+              {/* Senha */}
+              <div className="flex items-center gap-4">
+                <LockKeyhole className="text-black text-2xl" />
+                <input 
+                      type="password" 
+                      minLength={8} 
+                      name="senha" 
+                      placeholder="Senha" 
+                      className="outline-none p-3 rounded-sm flex-1" />
+              </div>
+            </form>
+          </div>
+          )}
+
+
+          {isRegisterAddress &&(
+            <div className="flex justify-center items-center">
+              <form action="" className="flex flex-col w-[750px] gap-5 text-cyan-800">
+                {/* Endereço */}
+                <div className="flex items-center gap-4">
+                  <FaHouseUser className="text-black text-2xl" />
+                  <input 
+                        type="text" 
+                        name="endereco" 
+                        placeholder="Endereço" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                </div>
+
+                {/* Número - Complemento */}
+                <div className="flex gap-5">
+                  <div className="flex items-center gap-4 flex-1">
+                    <AiOutlineFieldNumber className="text-black text-2xl" />
+                    <input
+                        type="number" 
+                        name="cep" 
+                        placeholder="CEP"
+                        className="outline-none p-3 rounded-sm flex-1" />
+                  </div>
+                  <div className="flex items-center gap-4 flex-1">
+                    <FaRegAddressCard className="text-black text-2xl" />
+                    <input
+                        type="text" 
+                        name="complemento" 
+                        placeholder="Complemento" 
+                        className="outline-none p-3 rounded-sm flex-1" />
+                  </div>
+                </div>
+
+                {/* Cidade - Estado */}
+                <div className="flex gap-5">
+                  <div className="flex items-center gap-4 flex-1">
+                    <FaCity className="text-black text-2xl" />
+                    <input 
+                        type="text" 
+                        name="cidade"
+                        placeholder="Cidade"
+                        className="outline-none p-3 rounded-sm flex-1" />
+                  </div>
+
+                  <div className="flex items-center gap-4 flex-1">
+                    <MdMyLocation className="text-black text-2xl" />
+                    <select name="estado" value={selectUf} onChange={handleSelectUf} className="outline-none p-3 rounded-sm flex-1">
+                      <option value="">Selecione o Estado</option>
+                      {estados_UF.map((uf) => (
+                        <option key={uf} value={uf}>
+                          {uf}
+                        </option>
+                      ))}
+                    </select>
 
                   </div>
-                  <div className="flex justify-evenly mt-5">
-                  <BtnForm></BtnForm>
-                  <BtnForm></BtnForm>
+                </div>
+              </form>
+            </div>
+      )}
+
+        {isFinancial && (
+        <div className="flex justify-center items-center">
+            <div className="flex gap-5 flex-col">
+                  <div className="flex gap-5">
+                      <div className="flex items-center gap-4 flex-1">
+                        <GrUserWorker  className="text-black text-2xl" />
+                        <input 
+                            type="text" 
+                            name="profissao" 
+                            placeholder="Profissão" 
+                            className="outline-none p-3 rounded-sm w-[450px]" />
+                      </div>
+
+                      <div className="flex items-center gap-4 flex-1">
+                        <MdAttachMoney  className="text-black text-2xl" />
+                        <input 
+                            type="number"
+                            name="salario" 
+                            placeholder="Salário" 
+                            className="outline-none p-3 rounded-sm flex-1" />
+                      </div>
                   </div>
+
+                  <div className="flex items-center gap-4">
+                      <SiShutterstock   className="text-black text-2xl" />
+                      <select name="perfil" className="outline-none p-3 rounded-sm">
+                        <option value="">Selecione seu perfil de investidor</option>
+                        <option value="conservador">Conservador</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="arrojado">Arrojado</option>
+                      </select>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                        <AiOutlineStock className="text-black text-2xl" />
+                        <select name="perfil" className="outline-none p-3 rounded-sm">
+                          <option value="">Selecione seu principal interesse como investidor</option>
+                          <option value="dayTrade">Day Trade</option>
+                          <option value="swingTrade">Swing Trade</option>
+                          <option value="positionTrade">Position Trade</option>
+                          <option value="rendaFixa">Renda Fixa</option>
+                        </select>
+                  </div>
+            </div>
+
+        </div>
+        )}
+
+          </div>
+            <div className="flex justify-evenly mt-5">
+              <BtnForm></BtnForm>
+              <BtnForm></BtnForm>
+            </div>
           </div>
               
           
