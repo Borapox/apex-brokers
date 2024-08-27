@@ -104,24 +104,44 @@ function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) 
             </div>
 
             <div className="h-96 flex flex-col">
-                  <Link to={"/"} >
-                    <button className="shadow-md shadow-gray-900 rounded-lg ml-5 bg-[#0681d4] w-72 h-16 font-bold text-gray-200 uppercase text-[14px] cursor-pointer hover:bg-[#245f80] transition duration-200">
-                      Entrar
-                    </button>
-                  </Link>
-              <div className="text-cyan-600 text-[12px] uppercase w-72 mt-2 text-center ml-5 flex">
-                <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400" onClick={openCreateAccount}>
-                  Cadastre-se
-                </button>
-                <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400">
-                  Esqueceu sua senha
-                </button>
-              </div>
+
+                  <div className="bg-cyan-100 bg-opacity-40 p-5 rounded-md shadow-md flex flex-col">
+                        
+                          <div className="flex items-center justify-center flex-col">
+                              <form action="" className="flex flex-col gap-5 mb-5">
+                                <input 
+                                    type="email" 
+                                    name=""
+                                    placeholder="email"
+                                    className="outline-none p-2 rounded-sm flex-1"
+                                />
+                                <input 
+                                    type="password"
+                                    placeholder="senha"
+                                    className="outline-none p-2 w-72 rounded-sm flex-1"
+                                />
+                              </form>
+                              <Link to="/">
+                                <BtnForm titleBtn="Entrar" />
+                              </Link>
+                          </div>
+                        
+                        <div className="text-black text-[12px] uppercase w-72 mt-2 text-center ml-5 flex">
+                          <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400" onClick={openCreateAccount}>
+                            Cadastre-se
+                          </button>
+                          <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400">
+                            Esqueceu sua senha
+                          </button>
+                        </div>
+                  </div>
             </div>
+
           </div>
         </div>
       </div>
 
+      
       {isCreateAccount && (
         <div className="absolute z-50 w-full h-full bg-gray-800 bg-opacity-90 flex items-center justify-center">
           <div className="bg-gradient-to-t from-cyan-800 to-cyan-600 w-[1050px] h-[800px] shadow-xl shadow-gray-900">
@@ -148,7 +168,7 @@ function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) 
 
                       {/* Div responsável pelos dados do formulário */}
 
-          <div className="h-[350px] w-[800px] border border-lime-400 m-auto p-5">
+          <div className="h-[350px] w-[800px] m-auto p-5">
           
           {isInfoUser && (
             <div className="flex justify-center items-center">
