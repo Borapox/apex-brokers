@@ -1,6 +1,6 @@
 import { MdAttachMoney } from "react-icons/md"
 
-const Info_Card_User = () => {
+const InfoUser = () => {
   return (
     <div className="border border-lime-300 font-bold text-white text-xl flex flex-col items-center justify-center">
         <h2>
@@ -14,4 +14,4 @@ const Info_Card_User = () => {
   )
 }
 
-export default Info_Card_User
+export default InfoUser

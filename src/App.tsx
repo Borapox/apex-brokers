@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import NavBarLeft from "./components/NavBarLeft";
-import Card_Modal from "./components/card-modal/Card_Modal";
-import Info_Card_User from "./components/card-modal/Info_Card_User";
+import NavBarLeft from "./components/NavBarMenu/NavBarMenu";
+import Card_Modal from "./components/dashboard/dashboardCardLeft";
+import Info_Card_User from "./components/dashboard/InfoUser";
+import Card_Info_Modal from "./components/dashboard/dashboardCardRigth";
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
 
       <div className="flex flex-col w-full">
 
-          <div className="bg-[#7f8f9c] h-40 flex items-center ">
+          <div className="bg-[#7f8f9c] h-52 flex items-center ">
               
               <div className=" ml-5 border border-lime-400 w-1/4 flex justify-between">
               <Info_Card_User></Info_Card_User>
@@ -30,9 +31,10 @@ export default function App() {
               <Link to={"/CreateAccount"}>CADASTRO</Link>
           </div>
           
-          <div className="bg-gray-200 h-full p-10">
+          <div className="bg-gray-200 h-full p-10 flex justify-between">
             
-            <Card_Modal></Card_Modal>
+            <Card_Modal />
+            <Card_Info_Modal />
 
           </div>
 

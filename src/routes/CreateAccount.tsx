@@ -113,12 +113,12 @@ function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) 
                                     type="email" 
                                     name=""
                                     placeholder="email"
-                                    className="outline-none p-2 rounded-sm flex-1"
+                                    className="outline-none p-2 rounded-sm flex-1 text-cyan-800"
                                 />
                                 <input 
                                     type="password"
                                     placeholder="senha"
-                                    className="outline-none p-2 w-72 rounded-sm flex-1"
+                                    className="outline-none p-2 w-72 rounded-sm flex-1 text-cyan-800"
                                 />
                               </form>
                               <Link to="/">
@@ -127,7 +127,7 @@ function handleSelectUf(event: { target: { value: SetStateAction<string>; }; }) 
                           </div>
                         
                         <div className="text-black text-[12px] uppercase w-72 mt-2 text-center ml-5 flex">
-                          <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400" onClick={openCreateAccount}>
+                          <button className="text-[12px] ml-5 uppercase cursor-pointer  hover:underline hover:text-cyan-400" onClick={openCreateAccount}>
                             Cadastre-se
                           </button>
                           <button className="text-[12px] ml-5 uppercase cursor-pointer hover:underline hover:text-cyan-400">

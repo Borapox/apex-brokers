@@ -3,6 +3,10 @@ import { SiExpertsexchange } from "react-icons/si"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
+
+    function windowPrint() {
+        window.print()
+    }
   return (
     <>
     <div className="flex justify-between w-full ">
@@ -28,24 +32,24 @@ const NavBar = () => {
             <div className="flex justify-end">
                 <div className="flex gap-10 w-80">
                         <button className="text-[#034858]">
-                            <Plus className="size-8 hover:text-[#01bdbf]"/>
+                            <Plus className="size-8 hover:text-[#01bdbf] transition duration-400"/>
                         </button>
 
                         <button className="text-[#034858]">
-                            <MessageSquareMore className="size-8 hover:text-[#01bdbf]"/>   
+                            <MessageSquareMore className="size-8 hover:text-[#01bdbf] transition duration-400"/>   
                         </button>
 
                         <button className="text-[#034858]">
-                            <Printer className="size-8 hover:text-[#01bdbf]"/>
+                            <Printer className="size-8 hover:text-[#01bdbf] transition duration-400" onClick={windowPrint}/>
                         </button>
 
                         <button className="text-[#034858]">
-                            <Bell className="size-8 hover:text-[#01bdbf]"/>
+                            <Bell className="size-8 hover:text-[#01bdbf] transition duration-400"/>
                         </button>
 
                 </div>
 
-                <div className="bg-[#01bdbf] rounded-full w-11 h-11 flex items-center justify-center text-white text-[40px] hover:bg-[#034858] mr-5 cursor-pointer">
+                <div className="bg-[#01bdbf] rounded-full w-11 h-11 flex items-center justify-center text-white text-[40px] hover:bg-[#034858] transition duration-400 mr-5 cursor-pointer">
                     <button>
                         <Settings />
                     </button>
