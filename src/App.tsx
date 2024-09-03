@@ -14,7 +14,7 @@ export default function App() {
 
     <div className="flex">
 
-      <div className="bg-[#024656] w-80 h-screen">
+      <div className="bg-gradient-to-tr to-cyan-300 from-cyan-100 w-80 h-screen">
         <NavBarLeft />
       </div>
 

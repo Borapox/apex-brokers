@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "85a2",
+      "nome": "Charles",
+      "sobrenome": "Müller",
+      "cpf": "04296653180",
+      "dataNascimento": "1992-08-15",
+      "genero": "Masculino",
+      "email": "muller.mdi@gmail.com",
+      "senha": "testes132345",
+      "endereco": "QC4 Bloco 9 Ed. Agapanto A",
+      "cep": "72878310",
+      "complemento": "Cidade Jardins",
+      "cidade": "Valparaíso de Goiás"
+    }
+  ]
+}
