@@ -1,51 +1,30 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Corretora Financeira Fictícia
 
-Currently, two official plugins are available:
+Bem-vindo ao repositório do projeto **Corretora Financeira Fictícia**, uma aplicação em desenvolvimento que visa simular o funcionamento de uma corretora financeira. Este projeto é uma oportunidade para explorar e aplicar conceitos de desenvolvimento web com React e Tailwind CSS, e está em constante evolução.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas:
+- **React**: Para construção da interface de usuário e gerenciamento de estado.
+- **Tailwind CSS**: Para estilização e design responsivo.
+- **React Router**: Para navegação entre páginas e roteamento.
+- **JSON Server**: Para simular uma API de backend e gerenciamento de dados.
 
-## Expanding the ESLint configuration
+## Status do Projeto:
+Atualmente, o desenvolvimento está em ritmo lento devido à necessidade de conciliar com outras responsabilidades e ao tempo dedicado ao estudo de novas tecnologias e práticas. A aplicação ainda está em fase inicial e pode apresentar funcionalidades em progresso ou incompletas.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## O Que Está Incluído:
+- Estrutura básica da aplicação com navegação e roteamento.
+- Páginas principais como Cadastro de Usuário, Dashboard e Relatórios.
+- Estilização com Tailwind CSS para garantir uma interface moderna e responsiva.
+- Simulação de API com JSON Server para manipulação de dados fictícios.
 
-- Configure the top-level `parserOptions` property like this:
+## Como Contribuir:
+- Sinta-se à vontade para sugerir melhorias ou novos recursos.
+- Caso você tenha experiência na área e possa oferecer orientações, suas contribuições são muito bem-vindas.
+- Se você encontrar erros ou tiver ideias para otimizações, não hesite em abrir uma issue ou enviar um pull request.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Nota:
+Este projeto está sendo desenvolvido de forma contínua e a documentação pode não estar completamente atualizada. Agradeço pela paciência e pelo apoio enquanto continuo trabalhando neste projeto.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# apex-brokers
+Acompanhe o progresso e fique à vontade para entrar em contato com sugestões ou para colaborar!
